@@ -887,6 +887,4 @@ public class Preferences extends PreferenceActivity
             }
         }
     }
-
-    ;
 }
