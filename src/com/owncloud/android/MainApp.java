@@ -1,22 +1,21 @@
 /**
- *   ownCloud Android client application
+ * ownCloud Android client application
  *
- *   @author masensio
- *   @author David A. Velasco
- *   Copyright (C) 2015 ownCloud Inc.
- *
- *   This program is free software: you can redistribute it and/or modify
- *   it under the terms of the GNU General Public License version 2,
- *   as published by the Free Software Foundation.
- *
- *   This program is distributed in the hope that it will be useful,
- *   but WITHOUT ANY WARRANTY; without even the implied warranty of
- *   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- *   GNU General Public License for more details.
- *
- *   You should have received a copy of the GNU General Public License
- *   along with this program.  If not, see <http://www.gnu.org/licenses/>.
- *
+ * @author masensio
+ * @author David A. Velasco
+ * Copyright (C) 2015 ownCloud Inc.
+ * <p/>
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License version 2,
+ * as published by the Free Software Foundation.
+ * <p/>
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ * <p/>
+ * You should have received a copy of the GNU General Public License
+ * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 package com.owncloud.android;
 
@@ -37,7 +36,7 @@ import com.owncloud.android.lib.common.utils.Log_OC;
 
 /**
  * Main Application of the project
- * 
+ *
  * Contains methods to build the "static" strings. These strings were before constants in different
  * classes
  */
@@ -58,11 +57,11 @@ public class MainApp extends Application {
     // TODO better place
     // private static boolean mOnlyOnDevice = false;
 
-    
-    public void onCreate(){
+
+    public void onCreate() {
         super.onCreate();
         MainApp.mContext = getApplicationContext();
-        
+
         boolean isSamlAuth = AUTH_ON.equals(getString(R.string.auth_method_saml_web_sso));
 
         OwnCloudClientManagerFactory.setUserAgent(getUserAgent());
@@ -74,7 +73,7 @@ public class MainApp extends Application {
 
         // initialise thumbnails cache on background thread
         new ThumbnailsCacheManager.InitDiskCacheTask().execute();
-        
+
         if (BuildConfig.DEBUG) {
 
             String dataFolder = getDataFolder();
@@ -88,23 +87,23 @@ public class MainApp extends Application {
 
         // register global protection with pass code
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.ICE_CREAM_SANDWICH) {
-            this.registerActivityLifecycleCallbacks( new ActivityLifecycleCallbacks() {
+            this.registerActivityLifecycleCallbacks(new ActivityLifecycleCallbacks() {
 
                 @Override
                 public void onActivityCreated(Activity activity, Bundle savedInstanceState) {
-                    Log_OC.d(activity.getClass().getSimpleName(),  "onCreate(Bundle) starting" );
+                    Log_OC.d(activity.getClass().getSimpleName(), "onCreate(Bundle) starting");
                     PassCodeManager.getPassCodeManager().onActivityCreated(activity);
                 }
 
                 @Override
                 public void onActivityStarted(Activity activity) {
-                    Log_OC.d(activity.getClass().getSimpleName(),  "onStart() starting" );
+                    Log_OC.d(activity.getClass().getSimpleName(), "onStart() starting");
                     PassCodeManager.getPassCodeManager().onActivityStarted(activity);
                 }
 
                 @Override
                 public void onActivityResumed(Activity activity) {
-                    Log_OC.d(activity.getClass().getSimpleName(), "onResume() starting" );
+                    Log_OC.d(activity.getClass().getSimpleName(), "onResume() starting");
                 }
 
                 @Override
@@ -114,18 +113,18 @@ public class MainApp extends Application {
 
                 @Override
                 public void onActivityStopped(Activity activity) {
-                    Log_OC.d(activity.getClass().getSimpleName(), "onStop() ending" );
+                    Log_OC.d(activity.getClass().getSimpleName(), "onStop() ending");
                     PassCodeManager.getPassCodeManager().onActivityStopped(activity);
                 }
 
                 @Override
                 public void onActivitySaveInstanceState(Activity activity, Bundle outState) {
-                    Log_OC.d(activity.getClass().getSimpleName(), "onSaveInstanceState(Bundle) starting" );
+                    Log_OC.d(activity.getClass().getSimpleName(), "onSaveInstanceState(Bundle) starting");
                 }
 
                 @Override
                 public void onActivityDestroyed(Activity activity) {
-                    Log_OC.d(activity.getClass().getSimpleName(), "onDestroy() ending" );
+                    Log_OC.d(activity.getClass().getSimpleName(), "onDestroy() ending");
                 }
             });
         }
@@ -147,30 +146,30 @@ public class MainApp extends Application {
     public static String getAuthority() {
         return getAppContext().getResources().getString(R.string.authority);
     }
-    
+
     //  From AccountAuthenticator
     //  public static final String AUTH_TOKEN_TYPE = "org.owncloud";
     public static String getAuthTokenType() {
         return getAppContext().getResources().getString(R.string.authority);
     }
-    
+
     //  From ProviderMeta 
     //  public static final String DB_FILE = "owncloud.db";
     public static String getDBFile() {
         return getAppContext().getResources().getString(R.string.db_file);
     }
-    
+
     //  From ProviderMeta
     //  private final String mDatabaseName = "ownCloud";
     public static String getDBName() {
         return getAppContext().getResources().getString(R.string.db_name);
     }
-     
+
     //  data_folder
     public static String getDataFolder() {
         return getAppContext().getResources().getString(R.string.data_folder);
     }
-    
+
     // log_name
     public static String getLogName() {
         return getAppContext().getResources().getString(R.string.log_name);
