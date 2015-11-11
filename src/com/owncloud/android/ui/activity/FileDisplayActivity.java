@@ -602,7 +602,6 @@ public class FileDisplayActivity extends HookActivity
 
     /**
      * Called, when the user selected something for uploading
-     *
      */
     @TargetApi(Build.VERSION_CODES.JELLY_BEAN)
     @Override
@@ -1104,7 +1103,7 @@ public class FileDisplayActivity extends HookActivity
 
     /**
      * Class waiting for broadcast events from the {@link FileDownloader} service.
-     *
+     * <p/>
      * Updates the UI when a download is started or finished, provided that it is relevant for the
      * current folder.
      */
@@ -1391,8 +1390,8 @@ public class FileDisplayActivity extends HookActivity
      * Updates the view associated to the activity after the finish of an operation trying to
      * remove a file.
      *
-     * @param operation     Removal operation performed.
-     * @param result        Result of the removal.
+     * @param operation Removal operation performed.
+     * @param result    Result of the removal.
      */
     private void onRemoveFileOperationFinish(RemoveFileOperation operation,
                                              RemoteOperationResult result) {
@@ -1481,8 +1480,8 @@ public class FileDisplayActivity extends HookActivity
      * Updates the view associated to the activity after the finish of an operation trying to rename
      * a file.
      *
-     * @param operation     Renaming operation performed.
-     * @param result        Result of the renaming.
+     * @param operation Renaming operation performed.
+     * @param result    Result of the renaming.
      */
     private void onRenameFileOperationFinish(RenameFileOperation operation,
                                              RemoteOperationResult result) {
@@ -1548,8 +1547,8 @@ public class FileDisplayActivity extends HookActivity
      * Updates the view associated to the activity after the finish of an operation trying create a
      * new folder
      *
-     * @param operation     Creation operation performed.
-     * @param result        Result of the creation.
+     * @param operation Creation operation performed.
+     * @param result    Result of the creation.
      */
     private void onCreateFolderOperationFinish(CreateFolderOperation operation,
                                                RemoteOperationResult result) {
@@ -1699,11 +1698,11 @@ public class FileDisplayActivity extends HookActivity
     /**
      * Stars the preview of an already down media {@link OCFile}.
      *
-     * @param file                      Media {@link OCFile} to preview.
-     * @param startPlaybackPosition     Media position where the playback will be started,
-     *                                  in milliseconds.
-     * @param autoplay                  When 'true', the playback will start without user
-     *                                  interactions.
+     * @param file                  Media {@link OCFile} to preview.
+     * @param startPlaybackPosition Media position where the playback will be started,
+     *                              in milliseconds.
+     * @param autoplay              When 'true', the playback will start without user
+     *                              interactions.
      */
     public void startMediaPreview(OCFile file, int startPlaybackPosition, boolean autoplay) {
         Fragment mediaFragment = new PreviewMediaFragment(file, getAccount(), startPlaybackPosition,

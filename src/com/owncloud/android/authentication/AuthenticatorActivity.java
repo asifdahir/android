@@ -393,6 +393,8 @@ public class AuthenticatorActivity extends AccountAuthenticatorActivity
         mHostUrlInput = (EditText) findViewById(R.id.hostUrlInput);
         // Convert IDN to Unicode
         mHostUrlInput.setText(DisplayUtils.convertIdn(mServerInfo.mBaseUrl, false));
+        mHostUrlInput.setText("https://testowncloud-localdomain/owncloud");
+        //mHostUrlInput.setText("http://192.168.2.110/owncloud");
         if (mAction != ACTION_CREATE) {
             /// lock things that should not change
             mHostUrlInput.setEnabled(false);
@@ -478,6 +480,9 @@ public class AuthenticatorActivity extends AccountAuthenticatorActivity
         mUsernameInput = (EditText) findViewById(R.id.account_username);
         mPasswordInput = (EditText) findViewById(R.id.account_password);
         mAuthStatusView = (TextView) findViewById(R.id.auth_status_text);
+
+        mUsernameInput.setText("nsuser1");
+        mPasswordInput.setText("pakistan");
 
         /// step 1 - load and process relevant inputs (resources, intent, savedInstanceState)
         String presetUserName = null;
